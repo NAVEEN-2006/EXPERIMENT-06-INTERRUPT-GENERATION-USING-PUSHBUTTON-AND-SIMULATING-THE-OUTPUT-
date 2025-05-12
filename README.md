@@ -90,13 +90,40 @@ https://engineeringxpert.com/wp-content/uploads/2022/04/26.png
 
 ## STM 32 CUBE PROGRAM :
 
+```
+#include "main.h"
 
+void SystemClock_Config(void);
+static void MX_GPIO_Init(void);
+
+int main(void)
+{
+  HAL_Init();
+  SystemClock_Config();
+  MX_GPIO_Init();
+  while (1)
+  {
+  }
+}
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+	if(GPIO_Pin==GPIO_PIN_0){
+		HAL_GPIO_TogglePin(GPIOA,GPIO_PIN_5);
+	}
+}
+```
 
 ## Output screen shots of proteus  :
+![image](https://github.com/user-attachments/assets/fc7994ee-6ed5-4347-bbc9-5d9a2667d1c8)
+
+![image](https://github.com/user-attachments/assets/34dd64ae-65cd-47e4-bb2d-337d7081fae8)
+
  
  
  ## CIRCUIT DIAGRAM (EXPORT THE GRAPHICS TO PDF AND ADD THE SCREEN SHOT HERE): 
  
- 
+ ![image](https://github.com/user-attachments/assets/b7f1652c-2e21-42ae-bec7-b35b46ade605)
+
+
 ## Result :
 Interfacing a push button and interrupt genrateion is simulated using proteus 
